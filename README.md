@@ -21,5 +21,11 @@ Estos PPA se actualizan con cada nueva versión. Gracias a Yves Raimond por conf
 % sudo apt-get install swi-prolog
 ```
 
-- Para mayor información:
-[Sitio oficial](http://www.swi-prolog.org/)
+## Programar en SWI Prolog.
+
+- Utilice el comando ***swipl*** para iniciar a programar en SWI Prolog.
+- Aparecerá un ***?-*** y listo ya puedes empezar a programar.
+
+## Documentación de SWI Prolog.
+
+- Para mayor información: [Sitio oficial](http://www.swi-prolog.org/)
