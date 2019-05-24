@@ -8,9 +8,9 @@
 % compAND(E1,E2,S1).
 compAND(E1,E2,S1):-S1 is E1 * E2.
 % compOR(E1,E2,S1).
-compOR(E1,E2,S1):-(E1 + E2 > 1,S1 is 1); S1 is E1 + E2.
+compOR(E1,E2,S1):-S1 is E1 + E2 - E1 * E2.
 % compXOR(E1,E2,S1).
-compXOR(E1,E2,S1):- S1 is ((1 - E1) * E2) + (E1 * (1 - E2)).
+compXOR(E1,E2,S1):-S1 is abs(E1-E2).
 % compNAND(E1,E2,S1).
 compNAND(E1,E2,S1):-compAND(E1,E2,A1),compNOT(A1,S1).
 % compNOR(E1,E2,S1).
@@ -25,9 +25,10 @@ compNOT(E,S):-S is 1 - E.
 % Circuito.
 circuito(E1,E2,E3,S1,S2):-compAND(E1,E3,X1),
                           compNOR(E2,E3,X2),
-                          compNAND(X1,X2,A1),
-                          compNOT(E3,X3),
-                          compOR(X3,E2,A2),
-                          compXOR(A1,A2,B1),
-                          compAND(B1,A2,S1),
-                          compXNOR(A2,E1,S2).
+                          compNOT(E3,X4),
+                          compNAND(X1,X2,X3),
+                          compOR(X4,E2,X5),
+                          compXOR(X3,X5,X6),
+                          compXNOR(X5,E1,S2),
+                          compAND(X6,X5,S1).
+
